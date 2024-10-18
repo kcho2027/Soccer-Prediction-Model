@@ -1,0 +1,128 @@
+body {
+    background: #fbfff0;
+    color: #333333;
+    margin-top: 5rem;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #444444;
+    margin-bottom: 10px;
+  }
+  h1, h3 {
+    margin-bottom: 15px;
+  }
+  
+  .bg-steel {
+    background-color: #00a153ff;
+  }
+
+  .site-header .navbar-brand h4 {
+    color: #fbfff0;
+  }
+  
+  .site-header .navbar-nav .nav-link {
+    color: #fbfff0;
+  }
+  
+  .site-header .navbar-nav .nav-link:hover {
+    color: #ffb400ff;
+    /*17aaefff*/
+  }
+  
+  .site-header .navbar-nav .nav-link.active {
+    font-weight: 500;
+  }
+  
+  .content-section {
+    background: rgb(119, 212, 255);
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    box-shadow: 7px 5px 5px rgba(120, 120, 120, .5)
+  }
+
+
+  /* Widget Classes*/
+  .calc-widget {
+    margin-bottom: 1rem;
+    min-height: 10rem;
+    padding: 0;
+    background-color: #00a153ff; 
+  }
+
+  .no-pad {
+    padding: 0;
+    margin: 0;
+  }
+
+  .year {
+    margin-bottom: -150%;
+    color: white;
+    z-index: 100;
+    line-height: 100%;
+  }
+
+  .jersey {
+    margin-top: -3%;
+  }
+
+  .stats {
+    white-space: nowrap;
+    color: white;
+  }
+
+  .stats p {
+    margin-bottom: 5px;
+  }
+  /* Widget Classes End*/
+
+  /* Fade in Transition */
+  .fade-in {
+    animation: fadeIn 2.5s;
+  }
+
+  @keyframes fadeIn {
+    0% {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+  }
+
+  @-moz-keyframes fadeIn {
+    0% {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+  }
+
+  @-o-keyframes fadeIn {
+    0% {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+  }
+  /* Fade In Transition End */

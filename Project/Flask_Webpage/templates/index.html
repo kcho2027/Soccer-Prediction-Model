@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block content %} 
+    <div class="col-md-7">
+        <h1>Welcome to our Soccer match predictor!</h1>
+        <p>Hi team, we need a better name for our project so it isn't just called "CS124H Group 12 Project".</p>
+        <p>
+            Also, I'm thinking we want the algorithm to not only find the most efficient combination but also output,
+            like, a rating for certain combinations and maybe it'll be robust enough that it can be used to predict
+            outcomes or smth. It would be super cool if we made some like prediction algorithm for matchups even
+            if it doesn't quite have enough data to be like omg crazy psychic AI predicting future perfectly moment.
+        </p>
+    </div>
+
+    <div class="col-md-5">
+        <div class="content-section fade-in">
+          <h3>Recent Calculations</h3>
+          <p class="text-muted">See what other people have asked the algorithm to evaluate!</p>
+          
+          {% for calc in calcs %}
+          <div class="calc-widget container border text-center">
+            <div class="row">
+                <div class="no-pad year">
+                    <p class="h5">{{ calc.year }}</p>
+                    <p class="h9">{{ calc.field }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <img src="{{calc.background}}" alt="static\NoLoss.png">
+            </div>
+            <div class="row">
+                <div class="col jersey">
+                    <img src="{{calc.home_jersey}}" alt="" style="width: 50%; height: auto;">
+                </div>
+                <div class="col stats h7">
+                    <p><span>{{ calc.home }} Vs. {{ calc.away }}</span></p>
+                    <p><span>{{ calc.percentages[0] }}% to {{ calc.percentages[1] }}%</span></p>
+                </div>
+                <div class="col jersey">
+                    <img src="{{calc.away_jersey}}" alt="" style="width: 50%; height: auto;">
+                </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+    </div>
+{% endblock %}
