@@ -13,7 +13,7 @@
     {% if title %}
         <title>{{ title }}</title>
     {% else %}
-        <title>Group 12 CS124H Project</title>
+        <title>SoccerMatchPro</title>
     {% endif %}
 
     <!--  Favicon -->
@@ -23,7 +23,7 @@
     <header class="site-header">
         <nav class="navbar navbar-expand-lg navbar-dark bg-steel fixed-top">
           <div class="container-fluid">
-            <a class="navbar-brand me-4" href="/"><h4>CS124H Group 12 Project</h5></a>
+            <a class="navbar-brand me-4" href="/"><h4>SoccerMatchPro</h5></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuItems" aria-controls="menuItems" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -37,6 +37,8 @@
           </div>
         </nav>
     </header>
+
+    {% block header %}{% endblock %}
 
     <main role="main" class="container">
         <div class="row">

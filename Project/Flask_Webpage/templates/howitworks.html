@@ -1,13 +1,66 @@
 {% extends "layout.html" %}
 
-{% block content %} 
+{% block content %}
     <div class="col-md-12">
         <h1>About Our Process</h1>
-        <p>Who knows at this point?</p>
+        <p>Our soccer match prediction model uses binomial logistic regression and cross-validation to ensure accuracy.</p>
         <p>
-            We can explain our project here and the parameters we use so we can use 
-            this website as like our presentation medium that would be cool :D
+            Below you can find the results of our 10-fold cross-validation, demonstrating how well our model performs across multiple data splits:
         </p>
+
+        <!-- Canvas for Chart.js -->
+        <h2>10-Fold Cross-Validation Accuracy</h2>
+        <canvas id="cvChart" width="400" height="200"></canvas>
+
+        <!-- Display Cross-Validation Scores in a Table -->
+        <h3>Cross-Validation Scores</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Fold</th>
+                    <th>Accuracy</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for score in cv_scores %}
+                <tr>
+                    <td>Fold {{ loop.index }}</td>  <!-- loop.index is 1-based index in Jinja2 -->
+                    <td>{{ score }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Include Chart.js and Render the Cross-Validation Chart -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            // Pass the cv_scores data from Flask to JavaScript
+            var cvScores = {{ cv_scores|tojson }};
+            
+            // Create the chart
+            var ctx = document.getElementById('cvChart').getContext('2d');
+            var cvChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [...Array(cvScores.length).keys()].map(i => `Fold ${i+1}`),  // Labels for each fold
+                    datasets: [{
+                        label: 'Cross-Validation Accuracy',
+                        data: cvScores,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2,
+                        fill: false
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            min: 0.5,
+                            max: 1.0  // Adjust the range for accuracy values
+                        }
+                    }
+                }
+            });
+        </script>
     </div>
 {% endblock %}
-
